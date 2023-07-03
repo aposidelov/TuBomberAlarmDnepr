@@ -15,7 +15,7 @@ async def get_recent_message(api_id, api_hash, chats, regex):
     for chat in chats:
         async with TelegramClient('test', api_id, api_hash) as client:
             current_time = int(time.time())
-            seconds_from_now_search_messages = config.get('Timing', 'SECONDS_FROM_NOW_SEARCH_MESSAGES')
+            seconds_from_now_search_messages = int(config.get('Timing', 'SECONDS_FROM_NOW_SEARCH_MESSAGES'))
             seconds_ago = current_time - seconds_from_now_search_messages
             async for message in client.iter_messages(chat, offset_date=seconds_ago, reverse=True):
                 if re.search(regex, message.text, re.MULTILINE | re.IGNORECASE):
