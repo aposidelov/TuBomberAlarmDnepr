@@ -45,7 +45,7 @@ async def wait_until(bot, wait_seconds):
 
 def main():
     bot_id = config.get('Bot', 'BOT_ID')
-    seconds_between_requests = config.get('Timing', 'SECONDS_BETWEEN_REQUESTS')
+    seconds_between_requests = int(config.get('Timing', 'SECONDS_BETWEEN_REQUESTS'))
     bot = Bot(bot_id)
     loop = asyncio.get_event_loop()
     task = loop.create_task(wait_until(bot, seconds_between_requests))
