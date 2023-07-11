@@ -5,7 +5,7 @@ After=multi-user.target
 [Service]
 Type=simple
 Restart=always
-ExecStart=/usr/bin/python3 /var/www/html/TuBomberAlarmDnepr/telegram_watcher.py
+ExecStart=/bin/sh -c "/usr/bin/python3 /var/www/html/TuBomberAlarmDnepr/telegram_watcher.py"
 
 [Install]
 WantedBy=multi-user.target

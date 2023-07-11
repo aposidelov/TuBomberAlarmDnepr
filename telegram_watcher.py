@@ -3,12 +3,14 @@ import configparser
 import datetime
 import re
 import time
+import os
 
 from aiogram import Bot
 from telethon import TelegramClient
 
 config = configparser.ConfigParser()
-config.read('bot.config')
+dirpath = os.path.dirname(os.path.abspath(__file__))
+config.read(dirpath + '/bot.config')
 
 
 async def get_recent_message(api_id, api_hash, chats, regex):
